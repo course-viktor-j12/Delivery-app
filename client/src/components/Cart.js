@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const Cart = ({ cart }) => {
-  const [countProduct, setCountProduct] = useState(0);
+export const Cart = ({ product }) => {
 
-  const addProduct = () => {
-    setCountProduct(countProduct + 1);
-    console.log(countProduct);
+  const dispatch = useDispatch();
+
+  const handleAddProduct = () => {
+    console.log(product.name);
+    dispatch({ type: 'ADD_PRODUCT', product: product.name });
   };
-
   return (
     <div className="container-cart">
       <div className="img-item">
         <img src="./image/burger.jpeg" />
       </div>
-      <h3>{cart.name}</h3>
-      <h3>{cart.price}</h3>
-      <button className="addCartButton" onClick={addProduct}>Add to Cart</button>
+      <h3>{product.name}</h3>
+      <h3>{product.price}</h3>
+      <button className="addCartButton" onClick={handleAddProduct}>Add to Cart</button>
     </div>
   );
 };

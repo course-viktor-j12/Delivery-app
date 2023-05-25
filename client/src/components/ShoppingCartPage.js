@@ -56,11 +56,6 @@ export const ShoppingCartPage = () => {
                 <Basket />
                 <Basket />
                 <Basket />
-                <Basket />
-                <Basket />
-                <Basket />
-                <Basket />
-                <Basket />
             </div>
             
         </div>
