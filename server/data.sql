@@ -2,8 +2,8 @@ CREATE DATA food_delivery;
 
 CREATE TABLE product(
     id INT PRIMARY KEY,
-    name VARCHAR(255),
-    title VARCHAR(30),
+    name VARCHAR(30),
+    -- title VARCHAR(30),
     price INT,
 );
 

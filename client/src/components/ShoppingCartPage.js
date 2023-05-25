@@ -47,6 +47,10 @@ export const ShoppingCartPage = () => {
                     ></input>
                    </div>
                 </form>
+                <div className="">
+                <h3>Total price:</h3>
+                <button>Submit</button>
+            </div>
             </div>
             <div className="container-basket">
                 <Basket />
@@ -58,6 +62,7 @@ export const ShoppingCartPage = () => {
                 <Basket />
                 <Basket />
             </div>
+            
         </div>
     )
 }
