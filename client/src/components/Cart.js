@@ -8,6 +8,9 @@ export const Cart = ({ product }) => {
   const handleAddProduct = () => {
     console.log(product.name);
     dispatch({ type: 'ADD_PRODUCT', product: product.name });
+    dispatch({ type: 'INC' });
+    dispatch({ type: 'PRICE', price: product.price });
+
   };
   return (
     <div className="container-cart">
