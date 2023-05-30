@@ -12,7 +12,11 @@ class ProductController {
         }
     }
     async getProduct(req, res) {
-
+        try {
+            
+        } catch (err) {
+            console.log(err)
+        }
     }
 }
 class OrderController {
@@ -25,8 +29,15 @@ class OrderController {
             console.log(err)
         }
     }
+    async getAllOrders(req, res) {
+        try {
+            const orders = await Order.findAll()
+            console.log('*************', orders)
+        } catch (err) {
+            console.log(err)
+        }
+    }
 }
-
 
 module.exports = new ProductController()
 module.exports = new OrderController()

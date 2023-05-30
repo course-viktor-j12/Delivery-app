@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db: 
+    container_name: new_delivery
+    image: postgres:14.0-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1111
+      - POSTGRES_DB=new_delivery
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
