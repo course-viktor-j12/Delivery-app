@@ -1,43 +1,7 @@
-const { Product } = require('../models/models')
-const { Order } = require('../models/models')
+const ProductController = require('./product.controller')
+const OrderController = require('./order.controller')
 
-class ProductController {
-    async create(req, res) {
-        try {
-            const { name, price, shop } = req.body
-            const product = await Product.create({ name, price, shop })
-            return await res.json(product)
-        } catch (err) {
-            console.log(err)
-        }
-    }
-    async getProduct(req, res) {
-        try {
-            
-        } catch (err) {
-            console.log(err)
-        }
-    }
+module.exports = {
+  ProductController,
+  OrderController
 }
-class OrderController {
-    async create(req, res) {
-        try {
-            const { username, name, shop, counter, price, productId } = req.body
-            const order = await Order.create({ username, name, shop, counter, price, productId })
-            return await res.json(order)
-        } catch (err) {
-            console.log(err)
-        }
-    }
-    async getAllOrders(req, res) {
-        try {
-            const orders = await Order.findAll()
-            console.log('*************', orders)
-        } catch (err) {
-            console.log(err)
-        }
-    }
-}
-
-module.exports = new ProductController()
-module.exports = new OrderController()

@@ -1,35 +1,51 @@
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { product_cfk, product_donny, product_LA_Pizza, product_MI_Pizza, product_NY_Pizza } from "../db";
 import { Cart } from "./Cart";
 
 export const ShopsPage = () => {
-  const shop = useSelector((state) => state.shop);
-
-  const dispatch = useDispatch();
+  const [products, setProducts] = useState([]);
+  const [selectedShop, setSelectedShop] = useState(null)
 
   const handleAddShop = (selectedShop) => {
-    dispatch({ type: 'ADD_SHOP', shop: selectedShop });
-  };
+    fetch(`http://localhost:5000/api/product/${selectedShop}`)
+      .then(response => response.json())
+      .then(data => {
+        setProducts(data)
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+    setSelectedShop(selectedShop)
+  }
+
+  useEffect(() => {
+      const shopItems = document.querySelectorAll('.shop-item')
+      // some code... 
+  }, [selectedShop])
 
   return (
     <div className="container-shops">
       <div className="aside">
         <h2>Shops:</h2>
         <div className="shops-item-block">
-          <div className="shop-item" onClick={() => handleAddShop(product_donny)}>MC Donny</div>
-          <div className="shop-item" onClick={() => handleAddShop(product_cfk)}>CFK</div>
-          <div className="shop-item" onClick={() => handleAddShop(product_NY_Pizza)}>NY Pizza</div>
-          <div className="shop-item" onClick={() => handleAddShop(product_MI_Pizza)}>MI Pizza</div>
-          <div className="shop-item" onClick={() => handleAddShop(product_LA_Pizza)}>LA Pizza</div>
+          <div className="shop-item" onClick={() => handleAddShop('Donny')} >MC Donny</div>
+          <div className="shop-item" onClick={() => handleAddShop('CFK')} >CFK</div>
+          <div className="shop-item" onClick={() => handleAddShop('NY-Pizza')} >NY Pizza</div>
+          <div className="shop-item" onClick={() => handleAddShop('MI-Pizza')} >MI Pizza</div>
+          <div className="shop-item" onClick={() => handleAddShop('LA-Pizza')} >LA Pizza</div>
         </div>
       </div>
       <div className="main">
-        {!shop ? (
-          <h2>Choose any shop</h2>
-        ) : (
-          shop.map((element) => <Cart product={element} key={element.id} />)
-        )}
+        {
+          !selectedShop ? (
+            <h2>Choose any shop</h2>
+          ) : (products.length === 0 ? (
+            <h2>Loading...</h2>
+          ) : (
+            products.map((element) => <Cart product={element} key={element.id} />)
+          ))
+        }
       </div>
     </div>
-  );
-};
+  )
+}

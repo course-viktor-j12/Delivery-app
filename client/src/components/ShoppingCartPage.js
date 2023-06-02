@@ -1,27 +1,33 @@
 import { useSelector } from "react-redux";
-import { useState } from "react"; // Import useState hook
+import { useState } from "react";
 import { Basket } from "./Basket";
 
 export const ShoppingCartPage = () => {
-  const { price, counter } = useSelector((state) => state);
+  const products = useSelector((state) => state)
+  console.log(products)
+
+  const totalPrice = products.reduce((acc, product) => {
+    return acc + (product.counter * product.price)
+}, 0)
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     address: ''
-  });
+  })
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
-  };
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-  };
+  }
 
   return (
     <div className="container-shoppingCart">
@@ -82,13 +88,19 @@ export const ShoppingCartPage = () => {
             ></input>
           </div>
           <div className="">
-            <h3>Total price: {counter * price}</h3>
+            <h3>Total price: {totalPrice}</h3>
             <button type="submit">Submit</button>
           </div>
         </form>
       </div>
       <div className="container-basket">
-        {!counter ? <h2>Choose any product</h2> : (<Basket />)}
+        {
+          products.length === 0 ? (
+            <h2>Choose any product</h2>
+          ) : (
+            products.map((element, index) => <Basket product={element} key={index} />)
+          )
+        }
       </div>
     </div>
   );

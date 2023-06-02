@@ -2,14 +2,20 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const Cart = ({ product }) => {
-
+  // console.log(product)
   const dispatch = useDispatch();
 
   const handleAddProduct = () => {
     console.log(product.name);
-    dispatch({ type: 'ADD_PRODUCT', product: product.name });
-    dispatch({ type: 'INC' });
-    dispatch({ type: 'PRICE', price: product.price });
+    dispatch({
+      type: 'ADD_PRODUCT', 
+      name: product.name, 
+      shop: product.shop,
+      counter: 1,
+      price: product.price
+    });
+    // dispatch({ type: 'INC', counter: product.counter +1 });
+    // dispatch({ type: 'PRICE', price: product.price });
 
   };
   return (
