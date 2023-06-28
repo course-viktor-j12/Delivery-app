@@ -6,7 +6,8 @@ const UserData = sequelize.define('userData', {
     username: { type: DataTypes.STRING, primaryKey: true, unique: true },
     email: { type: DataTypes.STRING, unique: true },
     phone: { type: DataTypes.INTEGER },
-    address: { type: DataTypes.STRING }
+    address: { type: DataTypes.STRING },
+    orderTotalPrice:{ type: DataTypes.INTEGER}
 })
 const Order = sequelize.define('order', {
     username: { type: DataTypes.STRING, unique: true },

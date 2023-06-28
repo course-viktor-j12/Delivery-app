@@ -4,7 +4,6 @@ import { Basket } from "./Basket";
 
 export const ShoppingCartPage = () => {
   const products = useSelector((state) => state)
-  console.log(products)
 
   const totalPrice = products.reduce((acc, product) => {
     return acc + (product.counter * product.price)
@@ -13,20 +12,22 @@ export const ShoppingCartPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
-    address: ''
+    phone: null,
+    address: '',
+    totalPrice: null
   })
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    });
+      [e.target.name]: e.target.value,
+      totalPrice
+    })
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
+    e.preventDefault()
+    console.log(products);
   }
 
   return (
