@@ -25,17 +25,17 @@ export const ShopsPage = () => {
 
   return (
     <div className="container-shops">
-      <div className="aside">
+      <div className="aside p-3 d-flex flex-column w-25">
         <h2>Shops:</h2>
-        <div className="shops-item-block">
-          <div className="shop-item" onClick={() => handleAddShop('Donny')} >MC Donny</div>
-          <div className="shop-item" onClick={() => handleAddShop('CFK')} >CFK</div>
-          <div className="shop-item" onClick={() => handleAddShop('NY-Pizza')} >NY Pizza</div>
-          <div className="shop-item" onClick={() => handleAddShop('MI-Pizza')} >MI Pizza</div>
-          <div className="shop-item" onClick={() => handleAddShop('LA-Pizza')} >LA Pizza</div>
+        <div className="shops-item-block flex-column ">
+          <div className="shop-item my-3 m-md-3 p-0 p-md-3" onClick={() => handleAddShop('Donny')} >MC Donny</div>
+          <div className="shop-item my-3 m-md-3 p-0 p-md-3" onClick={() => handleAddShop('CFK')} >CFK</div>
+          <div className="shop-item my-3 m-md-3 p-0 p-md-3" onClick={() => handleAddShop('NY-Pizza')} >NY Pizza</div>
+          <div className="shop-item my-3 m-md-3 p-0 p-md-3" onClick={() => handleAddShop('MI-Pizza')} >MI Pizza</div>
+          <div className="shop-item my-3 m-md-3 p-0 p-md-3" onClick={() => handleAddShop('LA-Pizza')} >LA Pizza</div>
         </div>
       </div>
-      <div className="main">
+      <div className="main w-50 p-3">
         {
           !selectedShop ? (
             <h2>Choose any shop</h2>

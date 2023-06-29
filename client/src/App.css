@@ -1,42 +1,4 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.error-page{
+.error-page, .thank-page{
   padding: 50px;
 }
 main{
@@ -64,11 +26,9 @@ h1{
 .container-shops {
   display: flex;
   justify-content: space-around;
-  max-height: 980px;
+  height: 600px;
 }
 .container-shops .aside{
-  width: 20%;
-  padding: 20px 70px;
   border: 2px solid;
   border-radius: 5px;
 }
@@ -76,8 +36,6 @@ h1{
   text-align: center;
 }
 .shops-item-block .shop-item{
-  margin: 10px 0;
-  padding: 30px;
   border: 2px solid;
   border-radius: 5px;
   text-align: center;
@@ -86,12 +44,10 @@ h1{
 }
 .shops-item-block .shop-item:hover{
   cursor: pointer;
-  background: #282c3441;
+  background: tan;;
 }
 .container-shops .main{
   display: flex;
-  min-width: 800px;
-  padding: 20px 70px;
   border: 2px solid;
   border-radius: 5px;
   overflow-y: scroll;
@@ -100,9 +56,28 @@ h1{
   align-items: center;
 }
 .container-cart {
+  width: 140px;
+  height: 260px;
   border: 2px solid;
   border-radius: 5px;
   margin: 10px;
+  padding: 5px;
+  position: relative;
+}
+.img-item{
+  background: url(image/burger.jpeg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 110px;
+}
+.cart-item{
+  height: 40px;
+}
+.container-cart button{
+  position: absolute;
+  bottom: 5px;
+  border-radius: 5px;
+  background: tan;
 }
 .container-shoppingCart{
   display: flex;
@@ -125,6 +100,10 @@ h1{
   flex-direction: column;
   width: 50%;
   padding: 20px;
+}
+.form-button button{
+  background: tan;
+  border-radius: 5px;
 }
 .form-item label{
   margin-bottom: 20px;
@@ -166,18 +145,18 @@ h1{
   display: block;
   background: gray;
   border: 1px solid;
-  width: 20px;
+  width: 23px;
   cursor: pointer;
 }
 .quantity-up{
-  right: 0px;
-  top: -1px;
+  right: 1px;
+  top: -2px;
   border-radius: 0 0 3px 0;
   transform: rotate(270deg);
 }
 .quantity-down{
-  right: 0px;
-  bottom: -1px;
+  right: 1px;
+  bottom: -2px;
   border-radius: 0 0 0px 3px;
   transform: rotate(270deg);
 }

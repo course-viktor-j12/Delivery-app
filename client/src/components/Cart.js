@@ -19,13 +19,18 @@ export const Cart = ({ product }) => {
 
   };
   return (
-    <div className="container-cart">
-      <div className="img-item">
-        <img src="./image/burger.jpeg" />
+    <div className="container-cart d-flex flex-column ">
+      <div className="img-item ">
       </div>
-      <h3>{product.name}</h3>
-      <h3>{product.price}</h3>
-      <button className="addCartButton" onClick={handleAddProduct}>Add to Cart</button>
+      <div className="cart-item">
+        <h3 className="fs-6 ">{product.name}</h3>
+      </div>
+      <div className="cart-item">
+        <h3>{product.price}</h3>
+      </div>
+      <div>
+        <button className="addCartButton " onClick={handleAddProduct}>Add to Cart</button>
+      </div>
     </div>
   );
 };

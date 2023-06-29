@@ -1,11 +1,15 @@
-const { Order } = require('../models/models')
+const { Order, UserData } = require('../models/models')
 
 class OrderController {
     async create(req, res) {
         try {
-            const { username, name, shop, counter, price, productId } = req.body
-            const order = await Order.create({ username, name, shop, counter, price, productId })
-            return res.json(order)
+            const { products, ...user } = req.body
+            const userData = await UserData.create(user)
+            products.forEach(async (el) => {
+                await Order.create({ ...el, userDatumId: userData.id })
+            })
+            //const order = await Order.create({ username, name, shop, counter, price, productId })
+            return res.json(UserData)
         } catch (e) {
             console.log(e)
         }
@@ -18,11 +22,11 @@ class OrderController {
             console.log(e)
         }
     }
-    async getByName(req, res) {
+    async getByDatumId(req, res) {
         try {
-            const { username } = req.params
+            const { id } = req.params
             const orders = await Order.findAll({
-                where: { username }
+                where: { userDatumId: id  }
             });
             return res.json(orders)
         } catch (e) {

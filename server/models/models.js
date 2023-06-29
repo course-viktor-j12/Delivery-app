@@ -2,15 +2,13 @@ const sequelize = require('../db')
 const { DataTypes } = require('sequelize')
 
 const UserData = sequelize.define('userData', {
-    id: { type: DataTypes.INTEGER, autoIncrement: true },
-    username: { type: DataTypes.STRING, primaryKey: true, unique: true },
-    email: { type: DataTypes.STRING, unique: true },
+    name: { type: DataTypes.STRING },
+    email: { type: DataTypes.STRING },
     phone: { type: DataTypes.INTEGER },
     address: { type: DataTypes.STRING },
-    orderTotalPrice:{ type: DataTypes.INTEGER}
+    totalPrice: { type: DataTypes.INTEGER }
 })
 const Order = sequelize.define('order', {
-    username: { type: DataTypes.STRING, unique: true },
     name: { type: DataTypes.STRING },
     shop: { type: DataTypes.STRING },
     price: { type: DataTypes.INTEGER },
@@ -18,8 +16,6 @@ const Order = sequelize.define('order', {
 })
 
 const Product = sequelize.define('products', {
-    // order_id: { type: DataTypes.INTEGER, autoIncrement: true },
-    // username: { type: DataTypes.STRING, primaryKey: true, unique:true },
     name: { type: DataTypes.STRING },
     shop: { type: DataTypes.STRING },
     price: { type: DataTypes.INTEGER },
@@ -28,9 +24,8 @@ const Product = sequelize.define('products', {
 UserData.hasMany(Order)
 Order.belongsTo(UserData)
 
-Product.hasOne(Order)
-Order.belongsTo(Product)
-
+Order.sync({ alter: true })
+UserData.sync({ alter: true })
 
 module.exports = {
     UserData, Order, Product

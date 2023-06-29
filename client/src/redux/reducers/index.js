@@ -61,6 +61,9 @@ export const reducer = (state = initialState, action) => {
             }, 0)
             return totalPrice
         }
+        case 'DELETE_STATE':{
+            return []
+        }
         default: {
             return state
         }
