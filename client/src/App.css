@@ -44,7 +44,8 @@ h1{
 }
 .shops-item-block .shop-item:hover{
   cursor: pointer;
-  background: tan;;
+  background: tan;
+  color: white;
 }
 .container-shops .main{
   display: flex;
@@ -78,6 +79,10 @@ h1{
   bottom: 5px;
   border-radius: 5px;
   background: tan;
+  color: white;
+}
+.container-cart button:active{
+  box-shadow: inset 0px 0px 9px 5px #ffffff;
 }
 .container-shoppingCart{
   display: flex;
@@ -104,6 +109,9 @@ h1{
 .form-button button{
   background: tan;
   border-radius: 5px;
+}
+.form-button button:active{
+  box-shadow: inset 0px 0px 9px 5px #ffffff;
 }
 .form-item label{
   margin-bottom: 20px;
@@ -147,6 +155,10 @@ h1{
   border: 1px solid;
   width: 23px;
   cursor: pointer;
+}
+.quantity-up:active,
+.quantity-down:active {
+  box-shadow: inset 0px 0px 9px 5px #ffffff;
 }
 .quantity-up{
   right: 1px;
