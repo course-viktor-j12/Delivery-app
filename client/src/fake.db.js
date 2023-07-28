@@ -29,7 +29,7 @@ export const product_donny = [{
 }]
 export const product_cfk = [{
     "id":0,
-    "name": "Hawaiian Burgerr",
+    "name": "Hawaiian Burger",
     "shop": "CFK",
     "price": 100
 },

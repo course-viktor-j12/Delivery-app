@@ -6,3 +6,12 @@ export const ThankYouPage = () => {
         </div>
     )
 }
+
+
+
+
+
+
+
+
+
