@@ -32,7 +32,7 @@ export const ShoppingCartPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const order = { ...formData, products }
-    axios.post('http://localhost:5000/api/order', order)
+    axios.post('https://delivery-client-s812.onrender.com/api/order', order)
       .then((response) => {
         setFormData({
           name: '',

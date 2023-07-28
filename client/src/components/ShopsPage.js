@@ -7,7 +7,7 @@ export const ShopsPage = () => {
   const [selectedShop, setSelectedShop] = useState(null)
 
   const handleAddShop = (selectedShop) => {
-    fetch(`http://localhost:5000/api/product/${selectedShop}`)
+    fetch(`https://delivery-client-s812.onrender.com/api/product/${selectedShop}`)
       .then(response => response.json())
       .then(data => {
         setProducts(data)
